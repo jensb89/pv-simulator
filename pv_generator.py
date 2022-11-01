@@ -26,6 +26,10 @@ class PVGenerator(object):
         self.data = self.generate_generator_curve()
         self.broker = Broker()
         self.broker.set_receive_callback(self.receive_meter_value)
+        # Prepare clean output file
+        with open(CSV_FILENAME, "w") as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(["Time of day","Meter (kW)", "Power from panel (kW)", "Total consumed (kW)"])
 
     def generate_generator_curve(self, median=86400 * 0.58, deviation=13500, max_val=3.3) -> list:
         """
@@ -116,7 +120,7 @@ class PVGenerator(object):
         :param total: The total power being consumed by the house
         """
         with open(CSV_FILENAME, "a") as csvfile:
-            data = [time.strftime("%H:%M:%S"), pv, meter, total]
+            data = [time.strftime("%H:%M:%S"), meter, pv, total]
             writer = csv.writer(csvfile)
             writer.writerow(data)
 

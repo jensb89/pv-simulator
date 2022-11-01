@@ -5,7 +5,7 @@ import pika
 # messages
 class Broker(object):
     def __init__(self, exchange_name="meter") -> None:
-        self.exchange = exchange_name
+        self.exchange = exchange_name #currently unused
         self._connection = pika.BlockingConnection(
             pika.ConnectionParameters(host="localhost")
         )
@@ -35,8 +35,6 @@ class Broker(object):
         function to acknowledge the message as the second parameter. If False, the callback will be
         called with the message as the only parameter, defaults to True (optional)
         """
-        # result = self._channel.queue_declare(queue='', exclusive=True)
-        # queue_name = result.method.queue
         self._channel.basic_consume(
             queue=queue, on_message_callback=callback, auto_ack=ack
         )
