@@ -101,7 +101,7 @@ class PVGenerator(object):
         # Unpack the json values and extract the time and meter values
         data = json.loads(body)
         time = datetime.datetime.fromisoformat(data.get("time"))
-        meterVal = data.get("meterValue")/1000  # unit:kW
+        meterVal = data.get("meterValue") / 1000  # unit:kW
         pv = self.get_data_point(time)  # unit: kW
         total = meterVal - pv  # unit:kW
         self.append_to_csv(time, pv, meterVal, total)

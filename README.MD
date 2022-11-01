@@ -7,13 +7,13 @@ Simulate the interaction between PV power values generated with a Solar Panel an
 ### Installation
 * Create a python virtualenv
 * Install all dependencies: `pip install -r requirements.txt` (main dependencies:numpy, matplotlib, pika)
-* Start pvGenerator.py in one shell
-* Start meter.py in another shell
+* Start `python pv_generator.py` in one shell
+* Start `python meter.py` in another shell
 
 ### Code style
 Run:
-python -m black <file>
-python -m flake8 <file>
+* `python -m black <file>`
+* `python -m flake8 <file>`
 
 ### Tests
 Run `pytest`
