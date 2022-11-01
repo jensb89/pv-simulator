@@ -1,5 +1,7 @@
 ## PV Simulator
 Simulate the interaction between PV power values generated with a Solar Panel and a building consumption.
+It assumes the following pv generator curve:
+![pv generator curve](pv_curve.png)
 
 ### Prerequisits
 * Rabbit MQ server running (https://www.rabbitmq.com/download.html)
