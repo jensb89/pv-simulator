@@ -25,4 +25,7 @@ Run `pytest`
 * The pv generator curve is approximated by a normal distribution. That's not totally correct as the sides of a given pv generator curve decrease faster. One could model the curve by a parabola and two linear sections
 * Don't open the file each time for a new datapoint for the fast sim and collect values for a day first: less file operations and improved simulation time
 * Spawn multiple producers at the same time (maybe even as separate threads) or use direct exchanges
-* Improve logging 
+* Improved logging 
+
+Future ideas:
+* Flask application for liveview web application
